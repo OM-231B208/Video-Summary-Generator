@@ -1,3 +1,12 @@
+---
+title: Video Summary Generator
+emoji: 🎬
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
 # 🎬 Video Summary Generator (VSG)
 
 A powerful, AI-driven tool that transforms long videos and URLs into concise, readable summaries. Whether it's a lecture, a meeting, or a movie trailer, VSG helps you get the gist in seconds! 🚀
