@@ -9,6 +9,10 @@ pinned: false
 
 # 🎬 Video Summary Generator (VSG)
 
+**[🚀 Try the Live Demo here!](https://omsharma1-video-summary-generator.hf.space)**
+
+---
+
 A powerful, AI-driven tool that transforms long videos and URLs into concise, readable summaries. Whether it's a lecture, a meeting, or a movie trailer, VSG helps you get the gist in seconds! 🚀
 
 ---
