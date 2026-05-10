@@ -5,6 +5,7 @@ torch
 transformers
 openai-whisper
 google-generativeai
+torchvision
 python-dotenv
 yt-dlp
 youtube-transcript-api

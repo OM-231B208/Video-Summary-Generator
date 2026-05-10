@@ -46,12 +46,15 @@ print(f"[BACKEND] ✓ Whisper loaded")
 print(f"[BACKEND] Loading PEGASUS-xsum (short text specialist)...")
 
 try:
+    from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+    model_name = "google/pegasus-xsum"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name).to(DEVICE)
     pegasus_summarizer = pipeline(
-        "summarization",
-        model="google/pegasus-xsum",
-        device=0 if DEVICE == "cuda" else -1,
-        framework="pt",
-        torch_dtype=torch.float16 if DEVICE == "cuda" else torch.float32
+        "text2text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        device=0 if DEVICE == "cuda" else -1
     )
 
     # Freeze positional embeddings (stability hardening)
@@ -75,12 +78,15 @@ except Exception as e:
 print(f"[BACKEND] Loading BART-large-cnn (long text specialist)...")
 
 try:
+    from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+    model_name = "facebook/bart-large-cnn"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_name).to(DEVICE)
     bart_summarizer = pipeline(
-        "summarization",
-        model="facebook/bart-large-cnn",
-        device=0 if DEVICE == "cuda" else -1,
-        framework="pt",
-        torch_dtype=torch.float16 if DEVICE == "cuda" else torch.float32
+        "text2text-generation",
+        model=model,
+        tokenizer=tokenizer,
+        device=0 if DEVICE == "cuda" else -1
     )
 
     # Silence generation warning
