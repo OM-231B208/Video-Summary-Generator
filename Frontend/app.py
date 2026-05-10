@@ -4,7 +4,13 @@ import time
 import base64
 from datetime import datetime
 import json
-from .assets import LOGO_BASE64  # Import the text-based logo
+try:
+    from assets import LOGO_BASE64
+except ImportError:
+    try:
+        from Frontend.assets import LOGO_BASE64
+    except ImportError:
+        LOGO_BASE64 = None
 
 # -------------------------------------------------
 # Config
