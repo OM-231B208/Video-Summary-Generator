@@ -1,12 +1,3 @@
----
-title: Video Summary Generator
-emoji: 🎬
-colorFrom: indigo
-colorTo: blue
-sdk: docker
-pinned: false
----
-
 # 🎬 Video Summary Generator (VSG)
 
 **[🚀 MY PROJECT WORKING LINK:- http://bit.ly/3OXmy7g](http://bit.ly/3OXmy7g)**
