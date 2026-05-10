@@ -9,7 +9,7 @@ pinned: false
 
 # 🎬 Video Summary Generator (VSG)
 
-**[🚀 Try the Live Demo here!](https://omsharma1-video-summary-generator.hf.space)**
+**[🚀 MY PROJECT WORKING LINK:- http://bit.ly/3OXmy7g](http://bit.ly/3OXmy7g)**
 
 ---
 

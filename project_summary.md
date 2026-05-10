@@ -1,5 +1,8 @@
 # Video Summary Generator (VSG) — Complete Panel Evaluation Document
-**Last Updated:** 2026-05-08 | **Team:** SOT | **Environment:** Conda `om_pro_vsg` | **Python:** 3.10
+
+**Live Demo Link:** [http://bit.ly/3OXmy7g](http://bit.ly/3OXmy7g)
+
+**Last Updated:** 2026-05-10 | **Team:** SOT | **Environment:** Conda `om_pro_vsg` | **Python:** 3.10
 
 ---
 
@@ -359,3 +362,30 @@ At startup, the frontend tries ports `8001` then `8000`. Whichever responds firs
 
 **Used For:** Muted video summarization (Gemini mode) and transcript summarization (Gemini mode)
 
+---
+
+## 🚀 Phase 3: Public Cloud Deployment (Completed)
+
+The final phase focused on transforming the local Video Summary Generator into a globally accessible, high-performance web application.
+
+### 1. Unified Full-Stack Dockerization
+- **Strategy:** Instead of separate hosting for Frontend and Backend, a **Unified Docker Container** was developed.
+- **Benefit:** This allows the Streamlit UI to communicate with the FastAPI Backend over `localhost` inside the container, resulting in **zero network latency** and perfectly synchronized job polling.
+- **Orchestration:** A custom `run.sh` script manages the lifecycle of both services, starting the AI-heavy backend first to ensure models are warm before the UI becomes interactive.
+
+### 2. Infrastructure & Hardware
+- **Platform:** Deployed on **Hugging Face Spaces** using the **Docker SDK**.
+- **Hardware:** Utilizes **16GB RAM / 2 vCPU** (CPU Basic tier) to accommodate the memory overhead of multiple transformer models.
+- **Dependencies:** Automated the installation of **FFmpeg** and system libraries via `apt-get` in the Dockerfile, ensuring audio extraction logic works in a Linux-based cloud environment.
+
+### 3. Binary File Policy Bypass
+- **Challenge:** Hugging Face rejected the push due to binary `.png` assets in the Git history.
+- **Solution:** Performed a **Base64 Asset Conversion**. The `logo.png` was converted into a raw data string and stored in `Frontend/assets.py`.
+- **Implementation:** Updated `app.py` to import and render the logo directly from memory, making the entire repository 100% text-based and compliant with strict security policies.
+
+### 4. Production Security
+- **API Protection:** Integrated **Hugging Face Secrets** to store the `GEMINI_API_KEY`. The application dynamically pulls this key from the environment variables, keeping it hidden from the public source code.
+- **Git Optimization:** Executed a clean Git history reset to remove all traces of binary blobs, ensuring a lightweight and fast deployment process.
+
+---
+*This document serves as the final technical record of the Video Summary Generator's transition from an experimental local tool to a production-ready AI application.*
