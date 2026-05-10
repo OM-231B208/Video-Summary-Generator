@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+torch
+transformers
+openai-whisper
+google-generativeai
+python-dotenv
+yt-dlp
+youtube-transcript-api
+sqlalchemy
+bcrypt
+streamlit
+requests
+Pillow

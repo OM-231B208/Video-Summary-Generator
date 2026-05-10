@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
+venv/
+env/
+.venv/
+
+# Environment Variables (SECRET — NEVER UPLOAD!)
+.env
+
+# Large Temporary Audio/Video Files
+temp_audio*.wav
+temp_audio.wav
+*.mp4
+temp_uploads/
+
+# Local Database (not needed on GitHub)
+*.db
+vsg_users.db
+
+# VS Code settings
+.vscode/
+
+# Logs and misc
+*.log
+deps_backup.txt
+installed_packages.txt
+notes.txt
